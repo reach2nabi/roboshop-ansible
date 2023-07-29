@@ -2,15 +2,15 @@
    hosts: all
    become: true
    tasks:
-     -name: Install Mongo
-     ansible.builtin.yum:
-       name: mongodb-org
-       state: installed
+    - name: Install Mongo
+      ansible.builtin.yum:
+        name: mongodb-org
+        state: installed
 
-     - name: Copy file
-       ansible.builtin.copy:
-         src: mongo.conf
-         dest: /etc/yum.repos.d/mongo.repo
+    - name: Copy file
+      ansible.builtin.copy:
+        src: mongo.conf
+        dest: /etc/yum.repos.d/mongo.repo
 
      - name: Replace old hostname with new hostname
        ansible.builtin.replace:
