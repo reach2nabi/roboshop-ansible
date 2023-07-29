@@ -1,0 +1,25 @@
+- name: Install MongoDB
+  hosts: all
+  become: true
+  tasks:
+    -name: Install Mongo
+    ansible.builtin.yum:
+      name: mongodb-org
+      state: installed
+
+    - name: Copy file
+      ansible.builtin.copy:
+          src: mongo.conf
+          dest: /etc/yum.repos.d/mongo.repo
+
+    - name: Replace old hostname with new hostname
+      ansible.builtin.replace:
+        path: /etc/mongod.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+
+    - name: Start service unit is running
+      ansible.builtin.systemd:
+        name: mongod
+        state: restarted
+        enabled: yes
