@@ -1,6 +1,6 @@
   - name: Copy file
     ansible.builtin.copy:
-      src: "{{component}}".service
+      src: catalogue.service
       dest: /etc/systemd/system/{{component}}.service
 
   - name: Start {{component}} service
