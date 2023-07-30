@@ -7,11 +7,12 @@
   - name: Copy file
     ansible.builtin.copy:
       src: {{component}}.service
-      dest: /etc/systemd/system/{{catalogue}}.service
+      dest: /etc/systemd/system/{{component}}.service
 
   - name: Start service
     ansible.builtin.systemd:
-      name: {{catalogue}}
+      name: {{component}}
       state: restarted
       enabled: yes
+      demon_reload: yes
 
