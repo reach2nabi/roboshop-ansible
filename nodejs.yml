@@ -11,8 +11,8 @@
 
  - name: Install Nodejs files package.
    ansible.builtin.shell: npm install
-     args:
-       chdir: /app
+   args:
+     chdir: /app
 
  - name: Installing schema_setup
    ansible.builtin.import_tasks: mongo_schema.yml
