@@ -1,7 +1,7 @@
  - name: Copy file
    ansible.builtin.copy:
      src: {{component}}.service
-     dest: /etc/systemd/system/{{component}}.service
+     dest: /etc/systemd/system/"{{component}}".service
 
  - name: Execute the command in remote shell;
    ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
@@ -22,7 +22,7 @@
 
  - name: Unarchive a file with extra options
    ansible.builtin.unarchive:
-     src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}.zip
+     src: https://roboshop-artifacts.s3.amazonaws.com/"{{component}}".zip
      dest: /app
      remote_src: yes
 
