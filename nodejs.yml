@@ -1,0 +1,19 @@
+ - name: Application prereq
+   ansible.builtin.import_tasks: appprereq.yml
+
+ - name: Execute the command in remote shell;
+   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+ - name: Install Nodejs File
+   ansible.builtin.yum:
+     name: nodejs
+     state: installed
+
+ - name: Install Nodejs files package.
+   ansible.builtin.shell:
+     name: npm install
+     args:
+        chdir: /app
+
+ - name: Installing schema_setup
+   ansible.builtin.import_tasks: mongo_schema.yml
