@@ -1,6 +1,6 @@
  - name: Copy file
    ansible.builtin.copy:
-     src: mongo.conf
+     src: mongo.repo
      dest: /etc/yum.repos.d/mongo.repo
 
  - name: Install Mongo
@@ -9,7 +9,7 @@
      state: installed
 
  - name: Load Scheme
-   ansible.builtin.shell: host mongodb-dev.ndevops.online </app/schema/{{component}}.js
+   ansible.builtin.shell: mongo --host mongodb-dev.ndevops.online </app/schema/{{component}}.js
 
 
 
