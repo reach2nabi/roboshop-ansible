@@ -25,3 +25,7 @@
      src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}.zip
      dest: /app
      remote_src: yes
+
+ - name: Installing schema_setup
+   ansible.builtin.import_tasks: systemd.yml
+

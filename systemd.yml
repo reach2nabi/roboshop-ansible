@@ -1,9 +1,3 @@
-#echo -e "\e[31m>>>>>>>>>> Enable an Restart   <<<<<<<<<<\e[0m"
-#systemctl daemon-reload &>>${log}
-#systemctl enable ${component} &>>${log}
-#systemctl restart ${component} &>>${log}
-#func_exit_status
-
   - name: Copy file
     ansible.builtin.copy:
       src: {{component}}.service
