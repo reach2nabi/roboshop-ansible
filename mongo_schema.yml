@@ -9,7 +9,7 @@
      state: installed
 
  - name: Load Scheme;
-   ansible.builtin.shell: host mongodb.ndevops.online </app/schema/"{{component}}".js
+   ansible.builtin.shell: host mongodb.ndevops.online </app/schema/{{component}}.js
 
 
 
