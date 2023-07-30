@@ -1,6 +1,6 @@
  - name: Copy file
    ansible.builtin.copy:
-     src: {{component}}.service
+     src: "{{component}}".service
      dest: /etc/systemd/system/"{{component}}".service
 
  - name: Execute the command in remote shell;
@@ -8,7 +8,7 @@
 
  - name: Add the user 'roboshop'
    ansible.builtin.user:
-   name: roboshop
+     name: roboshop
 
  - name: Recursively remove directory
    ansible.builtin.file:
