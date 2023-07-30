@@ -22,7 +22,7 @@
 
  - name: Unarchive a file with extra options
    ansible.builtin.unarchive:
-     src: https://roboshop-artifacts.s3.amazonaws.com/"{{component}}".zip
+     src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}.zip
      dest: /app
      remote_src: yes
 
