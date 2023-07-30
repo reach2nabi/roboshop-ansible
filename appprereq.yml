@@ -26,6 +26,5 @@
      dest: /app
      remote_src: yes
 
- - name: Installing schema_setup
-   ansible.builtin.import_tasks: systemd.yml
+
 
