@@ -1,6 +1,6 @@
  - name: Install MySQL
    hosts: all
-   enabled: true
+   become: true
    tasks:
       - name: Copy file
         ansible.builtin.copy:
