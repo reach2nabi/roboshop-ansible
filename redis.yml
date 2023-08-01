@@ -6,7 +6,7 @@
        ansible.builtin.yum:
          name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
          state: installed
-         disable_gpg_check: true
+
 
      - name: Enabled
        ansible.builtin.shell: yum module enable redis:remi-6.2 -y
@@ -16,7 +16,7 @@
          name: redis
          state: started
 
-     - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
+     - name: Replace old hostname with new hostname
        ansible.builtin.replace:
          path: /etc/redis.conf
          regexp: '127.0.0.1'
@@ -28,7 +28,7 @@
          regexp: '127.0.0.1'
          replace: '0.0.0.0'
 
-     - name: Redis systemD
+     - name: Start Redis
        ansible.builtin.systemd:
          name: redis
          state: restarted
