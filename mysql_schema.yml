@@ -1,0 +1,8 @@
+ - name: Install Mongo
+   ansible.builtin.yum:
+     name: mysql
+     state: installed
+
+ - name: Load Scheme
+   ansible.builtin.shell: mysql -h mysql.ndevops.online -uroot -pRoboShop@1 < /app/schema/${component}.sql
+

@@ -1,0 +1,32 @@
+ - name: Install Rabbit MQ
+   hosts: all
+   become: true
+     - name: Execute the command in remote shell;
+       ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+
+     - name: Execute the command in remote shell;
+       ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+
+   - name: Install the nginx
+     ansible.builtin.yum:
+       name: rabbitmq-server
+       state: installed
+
+   - name: |-
+       Add user to server and assign full access control on / vhost.
+       The user might have permission .
+     community.rabbitmq.rabbitmq_user:
+       user: roboshop
+       password: roboshop123
+       vhost: /
+       configure_priv: .*
+       read_priv: .*
+       write_priv: .*
+       state: present
+
+   - name: Start service unit is running
+     ansible.builtin.systemd:
+       name: mysqld
+       state: restarted
+       enabled: yes
+

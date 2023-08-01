@@ -1,0 +1,21 @@
+
+- name: Install java File
+  ansible.builtin.yum:
+    name: maven
+    state: installed
+
+- name: Application prereq
+  ansible.builtin.import_tasks: appprereq.yml
+
+- name: Install Nodejs files package.
+  ansible.builtin.shell: npm install
+  args:
+    chdir: /app
+
+- name: Installing schema_setup
+  ansible.builtin.import_tasks: mysql_schema.yml
+
+- name: SystemD
+  ansible.builtin.import_tasks: systemd.yml
+
+
