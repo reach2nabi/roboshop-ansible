@@ -2,18 +2,18 @@
    hosts: all
    become: true
    tasks:
-     - name: Install redis
+     - name: Install redis repo
        ansible.builtin.yum:
-         name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+         name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
          state: Installed
 
-     - name: Install
+     - name: Enabled
        ansible.builtin.shell: yum module enable redis:remi-6.2 -y
 
      - name: Install
        ansible.builtin.yum:
          name: redis
-         state: Installed
+         state: started
 
      - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
        ansible.builtin.replace:
