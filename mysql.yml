@@ -2,29 +2,29 @@
    hosts: all
    enabled: true
    tasks:
-    - name: Copy file
-      ansible.builtin.copy:
-        src: mysql.repo
-        dest: /etc/yum.repos.d/mysql.repo
+      - name: Copy file
+        ansible.builtin.copy:
+          src: mysql.repo
+          dest: /etc/yum.repos.d/mysql.repo
 
-    - name: Disable old MySQL file
-      hosts: all
-      become: true
-      tasks:
-        - name: Load Scheme
-          ansible.builtin.shell: yum module disable mysql -y
+      - name: Disable old MySQL file
+        hosts: all
+        become: true
+        tasks:
+          - name: Load Scheme
+            ansible.builtin.shell: yum module disable mysql -y
 
-    - name: Install the mysql
-      ansible.builtin.yum:
-        name: mysql-community-server
-        state: installed
+      - name: Install the mysql
+        ansible.builtin.yum:
+          name: mysql-community-server
+          state: installed
 
-    - name: Start service unit is running
-      ansible.builtin.systemd:
-       name: mysqld
-       state: restarted
-       enabled: yes
+      - name: Start service unit is running
+        ansible.builtin.systemd:
+         name: mysqld
+         state: restarted
+         enabled: yes
 
-    - name: Load Scheme
-      ansible.builtin.shell: mysql_secure_installation --set-root-pass RoboShop@1
+      - name: Load Scheme
+        ansible.builtin.shell: mysql_secure_installation --set-root-pass RoboShop@1
 
