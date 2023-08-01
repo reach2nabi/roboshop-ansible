@@ -15,6 +15,7 @@
        ansible.builtin.yum:
          name: redis
          state: started
+         disable_gpg_check: true
 
      - name: Replace old hostname with new hostname
        ansible.builtin.replace:
