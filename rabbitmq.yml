@@ -13,6 +13,11 @@
          name: rabbitmq-server
          state: installed
 
+     - name: Start service unit is running
+       ansible.builtin.systemd:
+         name: rabbitmq-server
+         state: restarted
+         enabled: yes
 
      - name: Add user to server and assign full access control permission;
        community.rabbitmq.rabbitmq_user:
@@ -24,10 +29,6 @@
          write_priv: .*
          state: present
 
-     - name: Start service unit is running
-       ansible.builtin.systemd:
-         name: rabbitmq-server
-         state: restarted
-         enabled: yes
+
 
 
