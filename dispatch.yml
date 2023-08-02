@@ -32,12 +32,6 @@
           dest: /app
           remote_src: yes
 
-      - name: Get
-        ansible.builtin.shell: get
-
-      - name: Build
-        ansible.builtin.shell: build
-
       - name: Start service unit is running
         ansible.builtin.systemd:
           name: golang
