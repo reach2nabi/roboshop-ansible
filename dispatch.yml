@@ -32,9 +32,6 @@
           dest: /app
           remote_src: yes
 
-      - name: dispatch
-        ansible.builtin.shell: dispatch
-
       - name: Get
         ansible.builtin.shell: get
 
