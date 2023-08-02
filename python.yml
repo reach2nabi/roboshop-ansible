@@ -1,9 +1,9 @@
   - name: Install Python File
     ansible.builtin.yum:
       name:
-        -gcc
-        -python3
-        -devel
+        - gcc
+        - python3
+        - devel
       state: installed
 
   - name: Application appprereq
