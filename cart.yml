@@ -1,8 +1,9 @@
- - name: cart Installation
-   hosts: all
-   become: true
-   vars:
-     component: cart
-   tasks:
-     - name: Imported tasks from Nodejs
-       ansible.builtin.import_tasks: nodejs.yml
+  - name: Catalogue Installation
+    hosts: all
+    become: true
+    vars:
+      component: cart
+      scheme: true
+    tasks:
+      - name: Imported tasks from Nodejs
+        ansible.builtin.import_tasks: nodejs.yml
