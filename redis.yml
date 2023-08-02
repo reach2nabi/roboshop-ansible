@@ -21,7 +21,7 @@
          regexp: '127.0.0.1'
          replace: '0.0.0.0'
 
-     - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
+     - name: Replace old hostname with new hostname
        ansible.builtin.replace:
          path: /etc/redis/redis.conf
          regexp: '127.0.0.1'
