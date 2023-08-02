@@ -28,7 +28,7 @@
 
       - name: Download and Extract file
         ansible.builtin.unarchive:
-          src: curl -L -o /tmp/dispatch.zip https://roboshop-artifacts.s3.amazonaws.com/dispatch.zip
+          src: https://roboshop-artifacts.s3.amazonaws.com/dispatch.zip
           dest: /tmp/dispatch.zip
           remote_src: yes
 
