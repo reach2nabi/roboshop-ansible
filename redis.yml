@@ -13,7 +13,7 @@
      - name: Install redis
        ansible.builtin.yum:
          name: redis
-         state: present
+         state: installed
 
      - name: Replace old hostname with new hostname
        ansible.builtin.replace:
