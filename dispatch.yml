@@ -36,10 +36,10 @@
         ansible.builtin.shell: mod init dispatch
 
       - name: Get
-        ansible.builtin.shell: go get
+        ansible.builtin.shell: get
 
       - name: Build
-        ansible.builtin.shell: go build
+        ansible.builtin.shell: build
 
       - name: Start service unit is running
         ansible.builtin.systemd:
