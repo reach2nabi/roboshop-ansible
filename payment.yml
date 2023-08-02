@@ -2,6 +2,7 @@
  - name: payment Installation
    hosts: all
    become: true
+   schema: true
    vars:
      component: payment
    tasks:
