@@ -34,7 +34,7 @@
 
       - name: Start service unit is running
         ansible.builtin.systemd:
-          name: golang
+          name: dispatch
           daemon_reload: true
           state: restarted
           enabled: yes
