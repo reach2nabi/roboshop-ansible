@@ -9,14 +9,11 @@
   - name: Application appprereq
     ansible.builtin.import_tasks: appprereq.yml
 
-  - name: Load Scheme
+  - name: install python dependencis
     ansible.builtin.shell: pip3.6 install -r requirements.txt
     args:
       chdir: /app
 
-  - name: Installing schema_setup
-    ansible.builtin.import_tasks: mysql_schema.yml
-    when: schema is defined
 
   - name: SystemD
     ansible.builtin.import_tasks: systemd.yml
