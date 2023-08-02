@@ -3,7 +3,6 @@
    become: true
    vars:
      component: cart
-
    tasks:
      - name: Imported tasks from Nodejs
        ansible.builtin.import_tasks: nodejs.yml

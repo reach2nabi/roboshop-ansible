@@ -14,7 +14,7 @@
 
     - name: Replace old hostname with new hostname
       ansible.builtin.replace:
-        path: /etc/mongod.conf
+        path: /etc.conf
         regexp: '127.0.0.1'
         replace: '0.0.0.0'
 

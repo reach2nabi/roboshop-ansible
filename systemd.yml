@@ -1,6 +1,6 @@
   - name: Setup SystemD Service
     ansible.builtin.copy:
-      src: catalogue.service
+      src: "{{component}}".service
       dest: /etc/systemd/system/{{component}}.service
 
   - name: Start {{component}} service
