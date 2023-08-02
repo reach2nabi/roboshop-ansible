@@ -8,11 +8,7 @@
           dest: /etc/yum.repos.d/mysql.repo
 
       - name: Disable old MySQL file
-        hosts: all
-        become: true
-        tasks:
-          - name: Load Scheme
-            ansible.builtin.shell: yum module disable mysql -y
+        ansible.builtin.shell: yum module disable mysql -y
 
       - name: Install the mysql
         ansible.builtin.yum:
