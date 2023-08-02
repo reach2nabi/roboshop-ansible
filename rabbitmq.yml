@@ -13,7 +13,7 @@
        state: installed
 
    - name: |-
-       Add user to server and assign full access control on / vhost.
+       Add user to server and assign full access control on vhost.
        The user might have permission .
      community.rabbitmq.rabbitmq_user:
        user: roboshop
