@@ -33,7 +33,7 @@
           remote_src: yes
 
       - name: dispatch
-        ansible.builtin.shell: mod init dispatch
+        ansible.builtin.shell: init dispatch
 
       - name: Get
         ansible.builtin.shell: get
