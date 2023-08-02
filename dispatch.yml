@@ -16,10 +16,6 @@
       - name: Application prereq
         ansible.builtin.import_tasks: appprereq.yml
 
-      - name: Start service unit is running
-        ansible.builtin.systemd:
-          name: dispatch
-          daemon_reload: true
-          state: restarted
-          enabled: yes
+      - name: SystemD
+        ansible.builtin.import_tasks: systemd.yml
 
