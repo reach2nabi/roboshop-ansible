@@ -1,6 +1,6 @@
   - name: Catalogue Installation
     hosts: all
-    become: true
+    become: yes
     vars:
       component: cart
     tasks:
