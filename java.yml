@@ -1,22 +1,22 @@
 
-- name: Install java File
-  ansible.builtin.yum:
-    name: maven
-    state: installed
+  - name: Install java File
+    ansible.builtin.yum:
+      name: maven
+      state: installed
 
-- name: Application prereq
-  ansible.builtin.import_tasks: appprereq.yml
+  - name: Application prereq
+    ansible.builtin.import_tasks: appprereq.yml
 
-- name: Install java files package.
-  ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
-  args:
-    chdir: /app
+  - name: Install java files package.
+    ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
+    args:
+      chdir: /app
 
-- name: Installing schema_setup
-  ansible.builtin.import_tasks: mysql_schema.yml
-  when: schema is defined
+  - name: Installing schema_setup
+    ansible.builtin.import_tasks: mysql_schema.yml
+    when: schema is defined
 
-- name: SystemD
-  ansible.builtin.import_tasks: systemd.yml
+  - name: SystemD
+    ansible.builtin.import_tasks: systemd.yml
 
 
