@@ -12,7 +12,7 @@
     args:
       chdir: /app
 
-  - name: Installing schema_setup
+  - name: schema_setup
     ansible.builtin.import_tasks: mysql_schema.yml
     when: schema is defined
 
