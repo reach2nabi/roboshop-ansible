@@ -3,6 +3,7 @@
    become: true
    vars:
      component: shipping
+     schema: true
    tasks:
      - name: Imported tasks from java
        ansible.builtin.import_tasks: java.yml
