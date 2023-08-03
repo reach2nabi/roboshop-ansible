@@ -4,5 +4,5 @@
      state: installed
 
  - name: Load Scheme
-   ansible.builtin.shell: mysql -h mysql.ndevops.online -uroot -pRoboShop@1 < /app/schema/{{component}}.sql
+   ansible.builtin.shell: mysql -h mysql-dev.ndevops.online -uroot -pRoboShop@1 < /app/schema/{{component}}.sql
 
