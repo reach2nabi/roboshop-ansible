@@ -17,7 +17,7 @@
 
  - name: schema_setup
    ansible.builtin.import_tasks: mongo_schema.yml
-   when: schema is defined
+
 
  - name: SystemD
    ansible.builtin.import_tasks: systemd.yml
