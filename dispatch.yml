@@ -1,7 +1,8 @@
   - name: Install Dispatch
     hosts: all
     become: true
-    component: dispatch
+    vars:
+      component: dispatch
     tasks:
       - name: Copy file
         ansible.builtin.copy:
